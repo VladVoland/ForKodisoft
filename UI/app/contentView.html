@@ -1,0 +1,44 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Online auction</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navb" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navb">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#!signIn">Sign-in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!collectionsView" ng-hide="!logged">Show all content collections</a>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link" ng-hide="!logged" ng-click="logout()">Log out</div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container my-5">
+    <table class="w3-table w3-bordered w3-striped">
+        <tr>
+            <th>Title</th>
+            <th>Publication date</th>
+            <th>Description</th>
+        </tr>
+        <tr ng-repeat="item in items">
+            <td><p class="mt-2">{{ item.title }}</p></td>
+            <td><p class="mt-2">{{ item.pubDate }}</p></td>
+            <td><p class="mt-2">{{ item.description }}</p></td>
+        </tr>
+    </table>
+    <br>
+    <form>
+        <h3>Add feed to this content collection:</h3>
+        <label>Feed URL:</label>
+        <input class="w3-input w3-border" type="text" ng-model="URL" placeholder="URL">
+        <br>
+        <button type="button" class="btn btn-success" ng-click="saveFeed()">&#10004; Save</button>
+    </form>
+</div>
